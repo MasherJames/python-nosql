@@ -1,6 +1,7 @@
+import os
 from mongoengine import *
 
-connect(db="apartments", host="localhost", port=27017)
+connect(db=os.getenv("DB"), host=os.getenv("HOST"), port=os.getenv("PORT"))
 
 class User(Document):
     email = EmailField(required=True)
